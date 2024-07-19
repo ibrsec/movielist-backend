@@ -25,12 +25,14 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
+    origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
+    // origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
     credentials: true, // Çerezlerin paylaşılmasına izin verir
   })
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React uygulamanızın adresi
+  res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app"); // React uygulamanızın adresi
+  // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React uygulamanızın adresi
   res.header("Access-Control-Allow-Credentials", "true"); // Çerezlerin gönderilmesine izin verir
   next();
 });
@@ -71,7 +73,7 @@ app.use(
 /* --------------------------------- Routes --------------------------------- */
 app.all("/", (req, res) => {
   res.send({
-    message: "Welcome to the unknown api!",
+    message: "Welcome to the movie tracker list api!",
     sessions: req.session,
     sessionOpt: req.sessionOptions,
   });
