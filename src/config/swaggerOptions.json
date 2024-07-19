@@ -23,8 +23,14 @@
       "schemas": {
         "Movie": {
           "type": "object",
-          "required": ["movieTitle", "year", "image"],
+          "required": ["user_id", "movieTitle", "year", "image"],
           "properties": {
+            "user_id": {
+              "type": "object",
+              "description": "User id of the user.",
+              "example": "66979ace407c0200194cd6e1",
+              "ref": "User"
+            },
             "movieTitle": {
               "type": "string",
               "description": "Name of the movie.",

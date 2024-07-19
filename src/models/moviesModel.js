@@ -2,6 +2,11 @@ const mongoose = require("mongoose");
 
 const MovieSchema = new mongoose.Schema(
   {
+    user_id: {
+      type:mongoose.Schema.Types.ObjectId,
+      required:true,
+      ref:"User"
+    },
     movieTitle: {
       type: String,
       trim: true,
@@ -18,8 +23,8 @@ const MovieSchema = new mongoose.Schema(
       trim: true,
       required: [true, "image is a required field!"],
       validate: (image) => {
-        console.log('validate');
-        return image.startsWith("https://") || image.startsWith("http://")  ;
+        console.log("validate");
+        return image.startsWith("https://") || image.startsWith("http://");
       },
     },
   },
