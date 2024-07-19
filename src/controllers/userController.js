@@ -144,6 +144,8 @@ module.exports.userController = {
  *     summary: Get a user by ID
  *     tags:
  *       - Users
+ *     security:
+ *       - Session Cookie: []
  *     parameters:
  *       - name: id
  *         in: path
@@ -237,6 +239,8 @@ module.exports.userController = {
  *     summary: Delete a user by ID
  *     tags:
  *       - Users
+ *     security:
+ *       - Session Cookie: []
  *     parameters:
  *       - name: id
  *         in: path

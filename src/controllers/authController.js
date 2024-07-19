@@ -154,6 +154,8 @@ module.exports.authController = {
  *     summary: User logout
  *     tags:
  *       - Auth
+ *     security:
+ *       - Session Cookie: []
  *     responses:
  *       '200':
  *         description: Successful logout

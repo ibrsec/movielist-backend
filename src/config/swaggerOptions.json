@@ -16,7 +16,7 @@
     },
     "servers": [
       {
-        "url": "http://localhost:4000"
+        "url": "https://blogapp-backend-express.vercel.app/"
       }
     ],
     "components": {
@@ -71,10 +71,20 @@
           },
           "required": ["username", "email", "password"]
         }
+      },
+      "securitySchemes": {
+        "SessionCookie": {
+          "type": "apiKey",
+          "in": "cookie",
+          "name": "session"
+        }
       }
-    }
+    },
+    "security": [
+      {
+        "SessionCookie": []
+      }
+    ]
   },
   "apis": ["./src/controllers/*.js"]
 }
-
-
