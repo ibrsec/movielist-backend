@@ -25,7 +25,8 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
+    origin: '*',// React uygulamanızın çalıştığı adres
+    // origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
     // origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
     credentials: true, // Çerezlerin paylaşılmasına izin verir
   })
@@ -56,9 +57,12 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    httpOnly: true,
-    secure: true, // Set to true in production
-    sameSite: 'none',
+    // httpOnly: true,
+    // secure: true, // Set to true in production
+    // sameSite: 'none',
+    secure: true, // HTTPS için gerekli
+    domain: 'movielist-cookie-auth-frontend.vercel.app', // Canlı URL'nizle eşleştirin
+    sameSite: 'lax'
 }}));
 
 /* --------------------------------- Swagger -------------------------------- */
