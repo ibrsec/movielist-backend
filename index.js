@@ -11,6 +11,8 @@ const swaggerDoc = require("swagger-jsdoc");
 const session = require("cookie-session");
 const authentication = require("./src/middlewares/sessionAtuhentication.js");
 const cors = require("cors");
+const path = require('path');
+
 
 /* ----------------------------------- app ---------------------------------- */
 const app = express();
@@ -30,11 +32,15 @@ app.use(
 );
 
 /* --------------------------------- Swagger -------------------------------- */
+
+
+
 const SwDoc = swaggerDoc(require("./src/config/swaggerOptions.json"));
 app.use("/api-doc", swaggerUi.serve, swaggerUi.setup(SwDoc));
+app.use('/swagger', express.static(path.join(__dirname, 'node_modules', 'swagger-ui-dist')));
 
 /* --------------------------------- Routes --------------------------------- */
-app.all("/", authentication, (req, res) => {
+app.all("/", (req, res) => {
   res.send({
     message: "Welcome to the unknown api!",
     sessions: req.session,
