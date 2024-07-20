@@ -25,7 +25,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    // origin: 'https://movielist-cookie-auth-frontend.vercel.app/',// React uygulamanızın çalıştığı adres
+    origin: 'https://movielist-cookie-auth-frontend.vercel.app/',// React uygulamanızın çalıştığı adres
     // origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
     // origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
     credentials: true, // Çerezlerin paylaşılmasına izin verir
