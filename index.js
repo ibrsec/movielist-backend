@@ -25,16 +25,24 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: 'https://movielist-cookie-auth-frontend.vercel.app/',// React uygulamanızın çalıştığı adres
+    origin: 'https://movielist-cookie-auth-frontend.vercel.app/',
+    credentials: true, // Allow cookies
+  }
+    // {
+    // origin: 'https://movielist-cookie-auth-frontend.vercel.app/',// React uygulamanızın çalıştığı adres
     // origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
     // origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
-    credentials: true, // Çerezlerin paylaşılmasına izin verir
-  })
+    // credentials: true, // Çerezlerin paylaşılmasına izin verir
+  // }
+  )
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
+  res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/");
+  res.header("Access-Control-Allow-Credentials", "true");
+  // next();
+  // res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
   // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React uygulamanızın adresi
-  res.header("Access-Control-Allow-Credentials", "true"); // Çerezlerin gönderilmesine izin verir
+  // res.header("Access-Control-Allow-Credentials", "true"); // Çerezlerin gönderilmesine izin verir
   next();
 });
 
@@ -60,9 +68,12 @@ app.use(session({
     // httpOnly: true,
     // secure: true, // Set to true in production
     // sameSite: 'none',
-    secure: true, // HTTPS için gerekli
-    domain: 'https://movielist-cookie-auth-frontend.vercel.app', // Canlı URL'nizle eşleştirin
-    sameSite: 'lax'
+    secure: true, // Set to true in production for HTTPS
+    domain: 'https://movielist-cookie-auth-frontend.vercel.app', // Match frontend URL
+    sameSite: 'lax',
+    // secure: true, // HTTPS için gerekli
+    // domain: 'https://movielist-cookie-auth-frontend.vercel.app', // Canlı URL'nizle eşleştirin
+    // sameSite: 'lax'
 }}));
 
 /* --------------------------------- Swagger -------------------------------- */
