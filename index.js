@@ -61,7 +61,7 @@ app.use(session({
     // secure: true, // Set to true in production
     // sameSite: 'none',
     secure: true, // HTTPS için gerekli
-    domain: 'movielist-cookie-auth-frontend.vercel.app', // Canlı URL'nizle eşleştirin
+    domain: 'https://movielist-cookie-auth-frontend.vercel.app', // Canlı URL'nizle eşleştirin
     sameSite: 'lax'
 }}));
 
