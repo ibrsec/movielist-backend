@@ -74,7 +74,7 @@ app.use(
     cookie: {
       secure: true, // Set to true in production
       domain: "movielist-cookie-auth-frontend.vercel.app", // Domain without 'https://'
-      sameSite: "strict",
+      sameSite: "lax",
       // secret: process.env.SECRET_KEY,
       // resave: false,
       // saveUninitialized: false,
