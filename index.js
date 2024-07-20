@@ -32,7 +32,7 @@ app.use(
   })
 );
 app.use((req, res, next) => {
-  res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
+  // res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
   // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React uygulamanızın adresi
   res.header("Access-Control-Allow-Credentials", "true"); // Çerezlerin gönderilmesine izin verir
   next();
