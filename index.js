@@ -44,7 +44,7 @@ app.use((req, res, next) => {
   ); // Ensure this matches exactly
   res.header("Access-Control-Allow-Credentials", "true"); // Allow credentials (cookies)
   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS"); // Allow HTTP methods
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization"); // Allow headers
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization,Origin, X-Requested-With, Accept"); // Allow headers
 
   // next();
   // res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
