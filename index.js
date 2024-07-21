@@ -8,7 +8,7 @@ require("express-async-errors");
 const express = require("express");
 const swaggerUi = require("swagger-ui-express");
 const swaggerDoc = require("swagger-jsdoc");
-const session = require("cookie-session");
+const session = require("express-session");
 const authentication = require("./src/middlewares/sessionAtuhentication.js");
 const cors = require("cors");
 const path = require("path");
@@ -74,7 +74,7 @@ app.use(
     cookie: {
       secure: true, // Set to true in production
       domain: "movielist-cookie-auth-frontend.vercel.app", // Domain without 'https://'
-      sameSite: "none",
+      sameSite: "lax",
       // secret: process.env.SECRET_KEY,
       // resave: false,
       // saveUninitialized: false,

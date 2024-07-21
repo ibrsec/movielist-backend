@@ -52,6 +52,7 @@ module.exports.moviesController = {
       error: false,
       message: "All movies are listed!",
       result: movies,
+      sessions: req.session
     });
   },
 
