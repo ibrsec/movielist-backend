@@ -25,33 +25,33 @@ app.use(express.json());
 
 app.use(
   cors(
-    {
-      origin: "https://movielist-cookie-auth-frontend.vercel.app", // Ensure this matches exactly
-      credentials: true, // Allow credentials (cookies)
-    }
     // {
+    //   origin: "https://movielist-cookie-auth-frontend.vercel.app", // Ensure this matches exactly
+    //   credentials: true, // Allow credentials (cookies)
+    // }
+    {
     // origin: 'https://movielist-cookie-auth-frontend.vercel.app/',// React uygulamanızın çalıştığı adres
     // origin: 'https://movielist-cookie-auth-frontend.vercel.app',// React uygulamanızın çalıştığı adres
-    // origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
-    // credentials: true, // Çerezlerin paylaşılmasına izin verir
-    // }
+    origin: 'http://localhost:3000',// React uygulamanızın çalıştığı adres
+    credentials: true, // Çerezlerin paylaşılmasına izin verir
+    }
   )
 );
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://movielist-cookie-auth-frontend.vercel.app"
-  ); // Ensure this matches exactly
-  res.header("Access-Control-Allow-Credentials", "true"); // Allow credentials (cookies)
-  res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS"); // Allow HTTP methods
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization,Origin, X-Requested-With, Accept,X-PINGOTHER"); // Allow headers
+// app.use((req, res, next) => {
+//   res.header(
+//     "Access-Control-Allow-Origin",
+//     "https://movielist-cookie-auth-frontend.vercel.app"
+//   ); // Ensure this matches exactly
+//   res.header("Access-Control-Allow-Credentials", "true"); // Allow credentials (cookies)
+//   res.header("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS"); // Allow HTTP methods
+//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization,Origin, X-Requested-With, Accept,X-PINGOTHER"); // Allow headers
 
   // next();
   // res.header("Access-Control-Allow-Origin", "https://movielist-cookie-auth-frontend.vercel.app/"); // React uygulamanızın adresi
   // res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // React uygulamanızın adresi
   // res.header("Access-Control-Allow-Credentials", "true"); // Çerezlerin gönderilmesine izin verir
-  next();
-});
+//   next();
+// });
 
 //Cookie Sessions middleware
 // app.use(
@@ -72,8 +72,8 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
-      secure: true, // Set to true in production
-      domain: "movielist-cookie-auth-frontend.vercel.app", // Domain without 'https://'
+      secure: false, // Set to true in production
+      // domain: "movielist-cookie-auth-frontend.vercel.app", // Domain without 'https://'
       sameSite: "lax",
       // secret: process.env.SECRET_KEY,
       // resave: false,
